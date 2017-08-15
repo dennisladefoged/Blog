@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 HP0-Y37 Errata. This was found in the Kindle edition of the book.\
+\
+ISBN-978-1-937826-14-7.\
+\
+Number references are to "LOC", as Kindle doesn't have page numbers.\
+\
+216: "...your Cisco devices might require IOS V12.5." - there is no IOS 12.5. Probably means 12.1\
+\
+246: "The spanning-tree protocol 
+\b that defaults Cisco 
+\b0 switches is..." - this doesn't read properly.\
+\
+411: "Only some devices in CatOS support GVRP." - Doesn't read right. Should maybe be "Only some devices running CatOS support GVRP" ?\
+\
+436: "works well for small and simple
+\b s
+\b0  LANs" - the 's' at the end of simples doesn't belong there.\
+\
+708: "Cisco Feature Navigation at..." - should be Navigator\
+\
+914: "255.255.255 area 0" should be "255.255.255.255 area 0"\
+\
+1126: Questions asks for correct order, not just which ones are correct. \
+\
+1128 "Then you can enable 
+\b MSPP On
+\b0  Edge switches" - should be "Then you can enable MSTP on Edge switches"\
+\
+1130 - As before, the question asks for the order, not just which ones are correct\
+\
+1171 - "...or a cluster chasses to increase..." - I believe the plural of 'chassis' is just 'chassis'\
+\
+1228 - "Prevent a node to watch traffic into its VLAN" - This sentence doesn't really make sense, and needs re-writing.\
+\
+1266 - "Preventing latency for sensitive traffic, such as VoIP and video" - you don't prevent latency, you minimise it.\
+\
+1646 - "Gigabit 1/0/2 - 3 as downlink ports" - but the config below doesn't show config for g1/0/3.\
+\
+1739 - "Extend the standard linkup/linkdown traps defined in RFC" - it should specify the RFC number\
+\
+2532 - "...to replace the Cisco distribution layer switches with 
+\b theh
+\b0  HP E-Series..." - Fix 
+\b theh\
+\
+
+\b0 2628 - "Although distributed trunking and LACP
+\b  is good
+\b0  and valid migration choice..." - should be "...is 
+\b a
+\b0  a good and valid..."\
+\
+2696 - multiple IP addresses here are missing a third octet - should probably be "10.1.X.5/24" or "10.1.X.254/24"\
+\
+3445 - "...Cisco switches, it will take, in
+\b  worse 
+\b0 cases, 4 to 5 seconds"\
+\
+3743 - "f. DHCP snooping by OSPF" - this choice makes no sense, and looks like it should be split into two separate choices. This would match up better with the answers given.\
+\
+3852 - "11" should be 10. Answer numbers go ...6,7,8,9,11,11.\
+\
+3900 "Finally, the distribution switches 
+\b exchangeIP
+\b0  routes with each other" - missing space\
+\
+4618 - "...because the new distribution switch has 
+\b lower
+\b0  priority than the Cisco one." - I think here it's meant to "a higher priority"\
+\
+4672 - "undo shutdown" - that's a Comware command. Should be "no shutdown"\
+\
+4693 - "With Cisco switches at the 
+\b ddge
+\b0 , it is recommended..." - should be "edge"\
+\
+4842 "External peers are adjacent and share a subnet" - this is not true. eBGP peers do not have to be directly connected. Default is that they are, but it does not have to be that way\
+\
+5498 "[HP-bgp] peer 172.16.0.1 enable" - I think in this case we're shutting down the peer, so command should be something like "peer 172.16.0.1 ignore" ?\
+\
+6117 - Question asks for correct order, not which ones are correct\
+\
+6315 - "...connected to 2/1, or 1/2 connected 
+\b to2/2
+\b0 )" - missing space.\
+\
+10548 - "
+\b 10
+\b0  GE2/0/25 2222 down 1028 --" - This should be "
+\b 101
+\b0  GE2/0/25 2222 down 1028 --" - the third bullet point just below certainly implies it should be 101, not 10.\
+\
+11432: "In Rapid PVST+, the cost per Gigabit is 20 000 if the path cost method is set 
+\b too
+\b0  long" - should be "set 
+\b to
+\b0  long"\
+\
+11920 - "The import VPN target of PE1 does not match import target of PE21" - firstly, PE21 should be PE2. Secondly, the answers imply that this should actually read "The export VPN target of PE1 does not match the import target of PE2"\
+\
+12204 - seems to be a random "1." slipped in just before "C is correct"\
+\
+12233 - "B and D are correct" - this doesn't seem to match up with the question order - I believe it should be "C and D are correct". Note also that just below this, it says "A and B are incorrect".\
+\
+}

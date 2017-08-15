@@ -1,0 +1,38 @@
+# Dependencies
+markdown:         kramdown
+
+# Permalinks
+permalink:        /:title/
+
+# Setup
+title:            'networkinglife'
+tagline:          'the jabberings of a networking guy'
+description:      'Technical posts on networking, career and worklife'
+url:              https://dennisladefoged.github.io/
+baseurl:          /networkinglife
+excerpt_separator: <!--more-->
+
+author:
+  name:           'Dennis ladefoged'
+  url:            https://twitter.com/dennisæadefoged
+  email:          dennis.ladefoged@gmail.com
+  github:         dennisladefoged
+  twitter:        dennisladefoged
+
+paginate:         10
+
+# Custom vars
+version:          1.0.0
+
+github:
+  repo:           https://github.com/dennisladefoged/networkinglife
+
+feed: 
+  path: /feed/index.xml
+
+# Gems
+gems:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-gist

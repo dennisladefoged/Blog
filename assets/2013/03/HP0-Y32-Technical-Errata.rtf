@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf340
+\cocoascreenfonts1{\fonttbl\f0\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 Location 906 "The default queuing is SP, and it is..." - according to this document - {\field{\*\fldinst{HYPERLINK "http://bizsupport1.austin.hp.com/bc/docs/support/SupportManual/c03187008/c03187008.pdf"}}{\fldrslt http://bizsupport1.austin.hp.com/bc/docs/support/SupportManual/c03187008/c03187008.pdf}}, page 46, the default queueing is WRR. \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 Location 1506 + 1510 - the first reference says "clock summertime 
+\b recurring
+\b0 ", but then the config example says "clock summer-time CET 
+\b repeating
+\b0 " - the use of "recurring" is for Cisco systems. "repeating" should be used for Comware.\
+\
+Location 1853 - "line vty 04" - this should of course be "line vty 0 4"\
+\
+Location 1893 - "username admin123 privilege 15 password verysecret" - this should use username secret, not username password (since we're talking about security).\
+\
+Location 2032 "CDP is in read-only mode" - should say "CDP is in receive-only mode"\
+\
+Location 2195 - answers A & D. I disagree with this - it should be C & D. SNMP templates are not used for actually setting communities on a device. \
+\
+Location 2367 - if a soft client is used, Voice Traffic can't be recognised by MAC OUI, as this will be the MAC of the PC. \
+\
+Location 3653/3658/3661 - first reference is to Bridge-aggregation 4, but then ports are assigned to group 3. Should be consistent.\
+\
+Location 3702 - Answer A "..are HP A-Series and for a switch" - seems like sentence is cut off? \
+\
+Location 3733/3735/3738 - first reference is to Port-channel 
+\b 10
+\b0 , but then interfaces are assigned to channel-group 
+\b 1
+\b0 .\
+\
+Location 3988 - "STP is fully compatible with RSTP bridges, in that an MSTP BPDU..." - I believe this should be "
+\b MSTP
+\b0  is fully compatible with RSTP bridges..."\
+\
+Location 4371 - "Enable PortFast on all access ports:\
+Cisco (config)# ,\
+On Cisco switches to implement MSTP..."\
+\
+The config command is missing here - should be "spanning-tree portfast default"\
+\
+Location 4480 - the instance to VLAN mappings are different between HP & Cisco. Is that intentional? Unclear, since question is trying to get us to notice that STP is not enabled on the HP\
+\
+Location 6467 - "Although VRRP support is not widely supported..." - Firstly should be "Although VRRP is not widely supported...", secondly it is now pretty widely supported. All routers should now support it, and have done since 12.2T days at least.\
+\
+Location 7279 - "ospf authentication-mode md5 1...\
+cipher cant_find" - I don't think this should be broken across two lines\
+\
+Location 7577 - "area-range 10.0.2.0 0.0.0.255 not-advertise"  - this should be something like "
+\b area 0 range 
+\b0 10.0.2.0 0.0.0.255 not-advertise" \
+\
+Location 8412 - "stub 10 no-summary" - I don't believe the "10" is required here.\
+\
+Location 8572 - Answer E will work on a Cisco router. \
+\
+Location 8669 - "address 15.6.7.9 30" - should be "
+\b ip
+\b0  address 15.6.7.9 30"\
+\
+Location 8708 - there should be an "ip nat outside" statement on the outside interface.\
+\
+Location 9054 - "rule permit source 10.1.1.0 0.0.255.255" - I'm not sure, but this might be meant to only be "rule permit source 10.1.1.0 0.0.0.255" - i.e. matching the /24, not the /16\
+\
+Location 13625 - "Which of the following is 
+\b not
+\b0  the reason that HP-A..." - I don't think that "not" belongs here.\
+\
+Locations 13660/14014 - the questions lists options A->G, but the answers only talk about A-D. I think that some of the answers should have multiple lines - e.g. the first two lines should be answer A. }

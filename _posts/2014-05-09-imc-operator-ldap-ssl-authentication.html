@@ -1,0 +1,85 @@
+---
+layout: post
+title: IMC operator LDAP / SSL authentication
+date: 2014-05-09 11:18:24.000000000 +02:00
+type: post
+published: true
+status: publish
+categories:
+- HP IMC
+- HP Networking
+tags:
+- HP networking
+- IMC
+- IMC Operator
+- LDAP
+- SSL
+meta:
+  _edit_last: '1'
+  _syntaxhighlighter_encoded: '1'
+  _yoast_wpseo_focuskw: IMC
+  _yoast_wpseo_metadesc: IMC LDAP SSL authentication.
+  _yoast_wpseo_linkdex: '87'
+  _wpas_done_all: '1'
+  _thumbnail_id: '104'
+  _wpas_skip_7271503: '1'
+  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1495583035;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:35;}i:1;a:1:{s:2:"id";i:119;}i:2;a:1:{s:2:"id";i:136;}}}}
+author:
+  login: dennisladefoged
+  email: dennis.ladefoged@gmail.com
+  display_name: dennisladefoged
+  first_name: ''
+  last_name: ''
+---
+<p>IMC administrator / operators can be externally authenticated via LDAP or Radius. Combine LDAP authentication and a Active Directory and you get and easy way to authenticate your IMC administrators.</p>
+<p>LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.</p>
+<p>In this post I will go through the following steps:</p>
+<ol>
+<li>Setup basic operator LDAP authentication.</li>
+<li>Enable SSL authentication.</li>
+</ol>
+<p><strong>Part 1: Setup basic operator LDAP authentication.</strong></p>
+<p>First we need to define an LDAP operator account in AD. IMC will use this account to do LDAP lookups. Grab hold of your favorite AD administrator or do it yourself. The user only needs to be member of the "domain user" group and nothing more. In this example I will use the account name "imc-operator-ldap".<br />
+Next we need to find the full DN of the user where we will use the command "dsquery":</p>
+<p>[php]:\Users\imc-operator-ldap&gt;dsquery user -name imc*<br />
+&quot;CN=imc-operator-ldap,CN=Users,DC=hp-lab,DC=local&quot;[/php]</p>
+<p>We can now use this information to configure the LDAP server in IMC:</p>
+<p><a href="http://networkinglife.dk/wp-content/uploads/2014/05/ldap_basic_config.png"><img class="aligncenter  wp-image-104" src="{{ site.baseurl }}/assets/ldap_basic_config-300x254.png" alt="ldap_basic_config" width="376" height="318" /></a></p>
+<p>&nbsp;</p>
+<ul>
+<li>Server type : Microsoft Active Directory.</li>
+<li>Server Address: The IP adress of your AD server.</li>
+<li>Server Port: 389 for basic authentication and 636 for SSL.</li>
+<li>Base DN: This is the base search level for your operator user. In this case we take the following from our dsquery "DC=hp-lab,DC=local".</li>
+<li>Admin DN: This is the full DN of your IMC operator. In this case we take the following from our dsquery "CN=imc-operator-ldap,CN=Users,DC=hp-lab,DC=local"</li>
+<li>Admin password: The password of the IMC operator AD user.</li>
+<li>Username attribute: Leave this at standard.</li>
+</ul>
+<p><strong>Define IMC user operator</strong></p>
+<p>With the LDAP server configured we now need to configure the actual administrative user which we will log on to IMC with.</p>
+<p>First configure the AD user. This is a trivial task which I will not cover in this post.</p>
+<p>Next we will configure the user in IMC:</p>
+<p><a href="http://networkinglife.dk/wp-content/uploads/2014/05/operator_config.png"><img class="aligncenter size-medium wp-image-110" src="{{ site.baseurl }}/assets/operator_config-300x139.png" alt="operator_config" width="300" height="139" /></a></p>
+<ul>
+<li>Login name: The same as the AD account login name.</li>
+<li>Full name: The same as the Login name.</li>
+<li>Authentication type: LDAP.</li>
+</ul>
+<p>You can leave the rest as per standard.</p>
+<p>Now you can verify the configuration by loggin in with your new operator login!</p>
+<p><strong>Step 2: Configure LDAP over SSL</strong></p>
+<p>For this step we need the following things:</p>
+<ul>
+<li>CA server certificate in base64 format.</li>
+<li>Configure SSL over LDAP in IMC.</li>
+</ul>
+<p>The easiest way of grabbing the CA certificate is pointing your favorite webbrowser to the following: <em>"http://ip-address-of-your-ca/certsrv". </em>Next choose "Download a CA certificate, certificate chain, or CRL" and click on "Base64". Download the certificate file by choosing "Download CA certificate".</p>
+<p>To finalize the configuration go to the LDAP config under IMC again:</p>
+<p><a href="http://networkinglife.dk/wp-content/uploads/2014/05/ldap_ssl_config.png"><img class="aligncenter size-medium wp-image-116" src="{{ site.baseurl }}/assets/ldap_ssl_config-300x135.png" alt="ldap_ssl_config" width="300" height="135" /></a></p>
+<p>&nbsp;</p>
+<ul>
+<li>Server port: 636.</li>
+<li>Select "Requires Security Connection (SSL).</li>
+<li>Click on "Authentication File Configure" and upload the Base64 CA certificate.</li>
+</ul>
+<p>And that´s it! Verify by logging in with your AD credential.</p>
