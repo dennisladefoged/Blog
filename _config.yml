@@ -9,7 +9,7 @@ title:            'routetonull'
 tagline:          'the jabberings of a networking guy'
 description:      'Technical posts on networking, automation and career'
 url:              https://dennisladefoged.github.io/routetonull
-baseurl:          https://dennisladefoged.github.io/routetonull
+baseurl:          routetonull/
 excerpt_separator: <!--more-->
 
 author:
