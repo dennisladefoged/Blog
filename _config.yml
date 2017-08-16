@@ -30,6 +30,9 @@ github:
 feed: 
   path: /feed/index.xml
 
+author:
+    gravatar_md5:     cc7990f1a6d4e0558f768075931c52b4
+
 # Gems
 gems:
   - jekyll-sitemap
