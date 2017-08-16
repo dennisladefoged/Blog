@@ -12,7 +12,6 @@ url:              https://routetonull
 baseurl:          /
 excerpt_separator: <!--more-->
 rss:                 atom.xml
-comments:         true
 
 author:
   name:           'Dennis ladefoged'
