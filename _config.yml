@@ -11,6 +11,7 @@ description:      'Technical posts on networking, automation and career'
 url:              https://routetonull
 baseurl:          /
 excerpt_separator: <!--more-->
+rss:                 atom.xml
 
 author:
   name:           'Dennis ladefoged'
