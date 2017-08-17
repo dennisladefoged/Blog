@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      IMC UAM Radius and IPv6 &middot; routetonull.
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="//public/css/poole.css">
+  <link rel="stylesheet" href="//public/css/syntax.css">
+  <link rel="stylesheet" href="//public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400|Source+Sans+Pro">
+  <link rel="stylesheet" href="//assets/css/style.css">
+  <link rel="stylesheet" href="//assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="//public/favicon.ico">
+
+  
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="//feed/">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay theme-base-09">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Technical posts on networking, automation and career</p>
+  </div>
+  
+<div class="sidebar-logo" style="align:center">
+      <img src="http://www.gravatar.com/avatar/cc7990f1a6d4e0558f768075931c52b4?s=120" />
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archives/">Site Archives</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">Post Categories</a>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Content Tags</a>
+        
+      
+    
+      
+    
+      
+    
+  </nav>
+
+  <div class="sidebar-item" style="align:center">
+    <p>
+      <a href="https://github.com/"><i class="fa fa-github fa-2x"></i></a>
+      <a href="https://twitter.com/"><i class="fa fa-twitter fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/dennisladefoged/"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      <a href="http://localhost:4000/feed/"><i class="fa fa-rss fa-2x"></i></a>
+      <a href="mailto:dennis.ladefoged@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+    </p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">routetonull.</a>
+            <small>the jabberings of a networking guy</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">IMC UAM Radius and IPv6</h1>
+  <span class="post-date">13 May 2014 &middot; Filed in <a href="http://localhost:4000/categories/#HP IMC">HP IMC</a></span>
+  <p>Yesterday while installing IMC for an POC (proof of concept) I stumbled on a problem with configuring radius on the UAM module. I had everything lined up and configured, but nothing was working!
+<!--more-->
+My access device which was a MSM controller was sending radius requests towards the IMC radius server on 1812, but was not receiving any response. I fired Wireshark op un the IMC server (a windows 2012 R2) and could see the radius request landing on the NIC. I double checked everything and the configuration was sound. I then proceeded to check if the IMC server was listening on TCP port 1812 and 1813 (std. radius ports) with the command “netstat -an”. Netstat reported that IMC was indeed not listening on any radius ports, not even the Cisco proprietary ports (1645,1646).
+Next step was the IMC UAM log which recides in this path “C:\Program Files\iMC\uam\log". And the following error filled the log:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">[</span><span class="nv">ERROR (1)</span><span class="pi">]</span> <span class="s">; [38072] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; Fail to bind Socket with Port for Receive Thread[isIPv6=0].</span>
+<span class="pi">[</span><span class="nv">WARNING (2)</span><span class="pi">]</span> <span class="s">; [44440] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; Receive Thread Quit Abnormally.</span>
+<span class="pi">[</span><span class="nv">ERROR (1)</span><span class="pi">]</span> <span class="s">; [38072] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; ip:168299340, port:1812</span>
+<span class="pi">[</span><span class="nv">WARNING (2)</span><span class="pi">]</span> <span class="s">; [38072] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; Receive Thread Quit Abnormally[isIPv6=0].</span>
+<span class="pi">[</span><span class="nv">WARNING (2)</span><span class="pi">]</span> <span class="s">; [38072] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; Receive Thread Quit Abnormally.</span>
+<span class="pi">[</span><span class="nv">WARNING (2)</span><span class="pi">]</span> <span class="s">; [45480] ; UAM ; $SYS$ ; (NULL) ; (NULL) ; (NULL) ; The receive threads are running abnormally.</span>
+</code></pre>
+</div>
+<p>The error is hinting that UAM cannot listen on the server´s network adapter because IPv6 is enabled. So i proceeded with disabling IPv6 on the network adapter:
+“http://networkinglife.dk/wp-content/uploads/2014/05/net_adapter_disable_ipv6.png”&gt;<img class="aligncenter size-medium wp-image-125" src="//assets/net_adapter_disable_ipv6-238x300.png" alt="net_adapter_disable_ipv6" width="238" height="300" />
+I then rebooted the IMC server through the Intelligent Deployment Monitoring Agent and Voila! UAM was now listening on ports TCP 1812 and 1813.
+Summary
+Short story… if UAM radius is not listening on any ports and spewing errors… disable IPv6. I have contacted HP with this bug and have not received any reply yet.</p>
+
+  <span class="post-date">Tags:
+    
+    
+
+
+  <a href="http://localhost:4000/tags/#HP networking">HP networking</a>
+  
+    &middot;
+  
+
+  <a href="http://localhost:4000/tags/#IMC">IMC</a>
+  
+    &middot;
+  
+
+  <a href="http://localhost:4000/tags/#IPv6">IPv6</a>
+  
+    &middot;
+  
+
+  <a href="http://localhost:4000/tags/#radius">radius</a>
+  
+    &middot;
+  
+
+  <a href="http://localhost:4000/tags/#uam">uam</a>
+  
+
+
+
+  </span>
+  
+    <span class="post-date">
+    <i class="fa fa-arrow-circle-left"></i> Previous Post: <a href="/imc-operator-ldap-ssl-authentication/">IMC operator LDAP / SSL authentication</a></span>
+  
+  
+    <span class="post-date">
+    Next Post: <a  href="/cisco-prime-infrastructure-2-1/">Cisco Prime Infrastructure 2.1</a> <i class="fa fa-arrow-circle-right"></i></span>
+  
+
+  <span class="post-sharing"><p>Share this: 
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/IMC-UAM-Radius-and-IPv6/" title="Share on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a> 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/IMC-UAM-Radius-and-IPv6/&text=IMC UAM Radius and IPv6" title="Share on Twitter"><i class="fa fa-twitter-square fa-2x"></i></a> 
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/IMC-UAM-Radius-and-IPv6/&title=IMC UAM Radius and IPv6" title="Share on LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a> 
+</p>
+</span>
+
+</div>
+
+        
+      </div>
+    </div>
+
+  </body>
+</html>

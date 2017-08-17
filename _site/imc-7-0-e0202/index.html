@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      IMC 7.0 E0202 &middot; routetonull.
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="//public/css/poole.css">
+  <link rel="stylesheet" href="//public/css/syntax.css">
+  <link rel="stylesheet" href="//public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400|Source+Sans+Pro">
+  <link rel="stylesheet" href="//assets/css/style.css">
+  <link rel="stylesheet" href="//assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/public/css/custom.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="//public/favicon.ico">
+
+  
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="//feed/">
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay theme-base-09">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Technical posts on networking, automation and career</p>
+  </div>
+  
+<div class="sidebar-logo" style="align:center">
+      <img src="http://www.gravatar.com/avatar/cc7990f1a6d4e0558f768075931c52b4?s=120" />
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archives/">Site Archives</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">Post Categories</a>
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags/">Content Tags</a>
+        
+      
+    
+      
+    
+      
+    
+  </nav>
+
+  <div class="sidebar-item" style="align:center">
+    <p>
+      <a href="https://github.com/"><i class="fa fa-github fa-2x"></i></a>
+      <a href="https://twitter.com/"><i class="fa fa-twitter fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/dennisladefoged/"><i class="fa fa-linkedin-square fa-2x"></i></a>
+      <a href="http://localhost:4000/feed/"><i class="fa fa-rss fa-2x"></i></a>
+      <a href="mailto:dennis.ladefoged@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+    </p>
+  </div>
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">routetonull.</a>
+            <small>the jabberings of a networking guy</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">IMC 7.0 E0202</h1>
+  <span class="post-date">6 May 2014 &middot; Filed in <a href="http://localhost:4000/categories/#HP Networking">HP Networking</a></span>
+  <p>Since my change to HP networking, I´ve been working steadily on gaining experience on every aspect of HP networking products. One product in particular is HP´s IMC which is their solution to network management. In the past I have solely worked on Solarwinds and hold a SCP. But i´m pretty impressed with IMC and the roadmap that HP is showing. So far they have been able to stick to a 6 month update turnaround, which have shown good progress. Now with the latest version E0202 they have bumped IMC upwards with some enhancements and lots of bugfixes. <!--more--> <strong>Enhancements</strong></p>
+<ul>
+<li>Topology HTML 5 is now an option on the drop down menu and not hidden away.</li>
+<li>IPv6 management, starting with Comware.</li>
+<li>Virtualization (Vmware, Hyper-v/KVM / XEN get support for more template driven provisioning and other cool stuff.</li>
+<li>Custom view gets some more love and care with better support for backup plans and alarm filtering, and  dynamic rules for selecting devices.</li>
+</ul>
+<p><strong>Fixes</strong></p>
+<ul>
+<li>Devices adapters.</li>
+<li>Device support (ASA 5520 / 40).</li>
+<li>SSL support for LDAP.</li>
+<li>Link Aggregation alarms now actually work.</li>
+<li>Annoying pop-up removed if you´re not on a officially supported browser.</li>
+</ul>
+<p><strong>Modules</strong></p>
+<ul>
+<li>UAM gets some much needed fixes and love.</li>
+<li>APM gets support for postgreSQL, Hyper-V, Vmware.</li>
+<li>Aruba wireless now supported.</li>
+<li>Wireless topology now gets some HTML5 support, but were still stuck on Java for the moment.</li>
+<li>SDN management now includes app manegement. First step towards the new SDN app store!</li>
+</ul>
+<p><strong>Summary</strong> It´s safe to upgrade and I would advise that you do it as soon as possible. You can upgrade directly from 5.0 E0401. Read the release notes <a href="http://h20566.www2.hp.com/portal/site/hpsc/template.BINARYPORTLET/public/kb/docDisplay/resource.process/?spf_p.tpst=kbDocDisplay_ws_BI&amp;spf_p.rid_kbDocDisplay=docDisplayResURL&amp;javax.portlet.begCacheTok=com.vignette.cachetoken&amp;spf_p.rst_kbDocDisplay=wsrp-resourceState%3DdocId%253Demr_na-c04212231-1%257CdocLocale%253D&amp;javax.portlet.endCacheTok=com.vignette.cachetoken" target="_blank">here...</a></p>
+
+  <span class="post-date">Tags:
+    
+    
+
+
+  <a href="http://localhost:4000/tags/#HP networking">HP networking</a>
+  
+    &middot;
+  
+
+  <a href="http://localhost:4000/tags/#IMC">IMC</a>
+  
+
+
+
+  </span>
+  
+    <span class="post-date">
+    <i class="fa fa-arrow-circle-left"></i> Previous Post: <a href="/the-starting-point-of-my-new-blog/">The starting point of my new blog</a></span>
+  
+  
+    <span class="post-date">
+    Next Post: <a  href="/imc-operator-ldap-ssl-authentication/">IMC operator LDAP / SSL authentication</a> <i class="fa fa-arrow-circle-right"></i></span>
+  
+
+  <span class="post-sharing"><p>Share this: 
+<a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/imc-7-0-e0202/" title="Share on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a> 
+<a href="https://twitter.com/intent/tweet?url=http://localhost:4000/imc-7-0-e0202/&text=IMC 7.0 E0202" title="Share on Twitter"><i class="fa fa-twitter-square fa-2x"></i></a> 
+<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/imc-7-0-e0202/&title=IMC 7.0 E0202" title="Share on LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a> 
+</p>
+</span>
+
+</div>
+
+        
+      </div>
+    </div>
+
+  </body>
+</html>
