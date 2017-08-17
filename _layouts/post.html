@@ -4,8 +4,9 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date: "%-d %B %Y" }} &middot; Filed in <a href="{{ site.url }}/categories/#{{ page.categories }}">{{ page.categories }}</a></span>
+  <span class="post-date">{{ page.date | date: "%-d %B %Y" }} &middot; Filed in <a href="{{ site.url }}/categories/#{{ page.categories }}">{{ page.categories }}</a>{% if page.comments %} • <a href="https://sgeos.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}</span>
   {{ content }}
+  {% include comments.html %}
   <span class="post-date">Tags:
     {% assign page_tags = page.tags | sort %}
     {% include page_tags_list %}
