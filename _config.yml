@@ -8,7 +8,7 @@ permalink:        /:title/
 title:            'routetonull.'
 tagline:          'the jabberings of a networking guy'
 description:      'Technical posts on networking, automation and career'
-url:              https://routetonull
+url:              https://routetonull.net
 baseurl:          /
 excerpt_separator: <!--more-->
 rss:                 atom.xml
