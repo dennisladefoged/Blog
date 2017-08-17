@@ -2,6 +2,7 @@
 layout: post
 title: Change of scenery
 date: 2016-12-12 22:07:41
+comments: true
 type: post
 categories:
 - Private

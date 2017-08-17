@@ -6,7 +6,6 @@ layout: default
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date: "%-d %B %Y" }} &middot; Filed in <a href="{{ site.url }}/categories/#{{ page.categories }}">{{ page.categories }}{% if page.comments %} • <a href="http://{{ site.url }}#disqus_thread">0 Comments</a>{% endif %}</a></span>
   {{ content }}
-  {% include comments.html %}
   <span class="post-date">Tags:
     {% assign page_tags = page.tags | sort %}
     {% include page_tags_list %}
@@ -21,5 +20,5 @@ layout: default
   {% endif %}
 
   <span class="post-sharing">{% include social_sharing.html %}</span>
-
+{% include comments.html %}
 </div>
