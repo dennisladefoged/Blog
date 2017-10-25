@@ -21,13 +21,12 @@ author:
   display_name: dennisladefoged
 ---
 <p>IMC administrator / operators can be externally authenticated via LDAP or Radius. Combine LDAP authentication and a Active Directory and you get and easy way to authenticate your IMC administrators.</p>
-<p>LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.</p>
+<p>LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.</p><!--more-->
 <p>In this post I will go through the following steps:</p>
 <ol>
 <li>Setup basic operator LDAP authentication.</li>
 <li>Enable SSL authentication.</li>
 </ol>
-<!--more-->
 <p><strong>Part 1: Setup basic operator LDAP authentication.</strong></p>
 <p>First we need to define an LDAP operator account in AD. IMC will use this account to do LDAP lookups. Grab hold of your favorite AD administrator or do it yourself. The user only needs to be member of the "domain user" group and nothing more. In this example I will use the account name "imc-operator-ldap".<br />
 Next we need to find the full DN of the user where we will use the command "dsquery":</p>
