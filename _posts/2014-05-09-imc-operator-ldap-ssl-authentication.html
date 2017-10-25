@@ -15,21 +15,10 @@ tags:
 - LDAP
 - SSL
 meta:
-  _edit_last: '1'
-  _syntaxhighlighter_encoded: '1'
-  _yoast_wpseo_focuskw: IMC
-  _yoast_wpseo_metadesc: IMC LDAP SSL authentication.
-  _yoast_wpseo_linkdex: '87'
-  _wpas_done_all: '1'
-  _thumbnail_id: '104'
-  _wpas_skip_7271503: '1'
-  _jetpack_related_posts_cache: a:1:{s:32:"8f6677c9d6b0f903e98ad32ec61f8deb";a:2:{s:7:"expires";i:1495583035;s:7:"payload";a:3:{i:0;a:1:{s:2:"id";i:35;}i:1;a:1:{s:2:"id";i:119;}i:2;a:1:{s:2:"id";i:136;}}}}
 author:
   login: dennisladefoged
   email: dennis.ladefoged@gmail.com
   display_name: dennisladefoged
-  first_name: ''
-  last_name: ''
 ---
 <p>IMC administrator / operators can be externally authenticated via LDAP or Radius. Combine LDAP authentication and a Active Directory and you get and easy way to authenticate your IMC administrators.</p>
 <p>LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.</p>
@@ -38,6 +27,7 @@ author:
 <li>Setup basic operator LDAP authentication.</li>
 <li>Enable SSL authentication.</li>
 </ol>
+<!--more-->
 <p><strong>Part 1: Setup basic operator LDAP authentication.</strong></p>
 <p>First we need to define an LDAP operator account in AD. IMC will use this account to do LDAP lookups. Grab hold of your favorite AD administrator or do it yourself. The user only needs to be member of the "domain user" group and nothing more. In this example I will use the account name "imc-operator-ldap".<br />
 Next we need to find the full DN of the user where we will use the command "dsquery":</p>
