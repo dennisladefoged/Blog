@@ -1,18 +1,17 @@
 ---
 layout: post
 title: IMC UAM Radius and IPv6
-date: 2014-05-13 08:54:23
-type: post
+date: 2014-05-13
 slug: IMC-UAM-Radius-and-IPv6
 categories:
-- HP IMC
+- IMC
 tags:
 - HP networking
 - IMC
 - IPv6
 - radius
 - uam
-author: dennis
+author: dennis Ladefoged
 ---
 Yesterday while installing IMC for an POC (proof of concept) I stumbled on a problem with configuring radius on the UAM module. I had everything lined up and configured, but nothing was working!
 <!--more-->
