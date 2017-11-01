@@ -1,24 +1,16 @@
 ---
 layout: post
 title: IMC operator LDAP / SSL authentication
-date: 2014-05-09 11:18:24.000000000 +02:00
-type: post
-published: true
-status: publish
+date: 2014-05-09
 categories:
-- HP IMC
-- HP Networking
+- Networking
 tags:
 - HP networking
 - IMC
 - IMC Operator
 - LDAP
 - SSL
-meta:
-author:
-  login: dennisladefoged
-  email: dennis.ladefoged@gmail.com
-  display_name: dennisladefoged
+author: Dennis Ladefoged
 ---
 <p>IMC administrator / operators can be externally authenticated via LDAP or Radius. Combine LDAP authentication and a Active Directory and you get and easy way to authenticate your IMC administrators.</p>
 <p>LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.</p><!--more-->
