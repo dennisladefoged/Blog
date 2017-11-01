@@ -3,6 +3,7 @@ layout: post
 title: HP´s response to Meraki is here
 slug: HPs-response-to-Meraki-is-here
 date: 2014-07-22
+comments: true
 categories:
 - Networking
 tags:
