@@ -7,4 +7,4 @@ slug: about
 title: About
 ---
 
-August 2016, I joined In[Aruba](http://www.arubanetworks.com/) as a Systems Engineer. You can assume what you will about my bias for any posts after this date.
+August 2016, I joined [Aruba](http://www.arubanetworks.com/) as a Systems Engineer. You can assume what you will about my bias for any posts after this date.
