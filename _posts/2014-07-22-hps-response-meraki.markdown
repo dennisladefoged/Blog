@@ -1,16 +1,14 @@
 ---
 layout: post
 title: HP´s response to Meraki is here
-date: 2014-07-22 09:21:03.000000000 +02:00
-type: post
-published: true
-status: publish
+slug: HPs-response-to-Meraki-is-here
+date: 2014-07-22
 categories:
-- HP Networking
+- Networking
 tags:
 - Cloud Network Manager
 - Cloud-managed wireless
-author: dennis
+author: Dennis Ladefoged
 ---
 It took a while but HP´s response to Cisco´s Meraki has hit the market. Say welcome to HP Cloud Network Manager!
 So far it looks like a joint-venture with Aruba who already has a cloud solution on the market, just with a HP twist to it.
