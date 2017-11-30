@@ -113,4 +113,4 @@ First, upload the image to the Mobility Master using SCP. This needs to be done 
 
 Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case _DC_. Go under _Configuration_ -> _Tasks_ and click on _Upgrade Cluster_
 
-[![step1](/assets/2017/11/step1_upgrade_cluster.png)]
+[![step1](/assets/2017/11/step1_cluster_upgrade.png)]
