@@ -4,7 +4,7 @@
  <title>routetonull.</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2017-08-22T10:51:41+02:00</updated>
+ <updated>2017-11-30T11:25:46+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -13,10 +13,19 @@
 
  
  <entry>
+   <title>ArubaOS 8 centralized upgrade</title>
+   <link href="http://localhost:4000/AOS8-centralized-upgrade/"/>
+   <updated>2017-11-30T00:00:00+01:00</updated>
+   <id>http://localhost:4000/AOS8-centralized-upgrade</id>
+   <content type="html">&lt;p&gt;Hello&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Change of scenery</title>
-   <link href="http://localhost:4000/change-of-scenery/"/>
-   <updated>2016-12-12T23:07:41+01:00</updated>
-   <id>http://localhost:4000/change-of-scenery</id>
+   <link href="http://localhost:4000/Change-of-scenery/"/>
+   <updated>2016-12-12T00:00:00+01:00</updated>
+   <id>http://localhost:4000/Change-of-scenery</id>
    <content type="html">&lt;p&gt;My blog has been dead for some time now. Mostly due to having two hyper-active kids and everything that follows with having a family.
 But I recently got the chance to start as a Systems Engineer at Aruba Networks here in Denmark. So I have decided to start blogging again about my new employment and the things that come with working for a vendor.&amp;lt;/p&amp;gt;
 More to come :-)&lt;/p&gt;
@@ -25,9 +34,9 @@ More to come :-)&lt;/p&gt;
  
  <entry>
    <title>HP´s response to Meraki is here</title>
-   <link href="http://localhost:4000/hps-response-meraki/"/>
-   <updated>2014-07-22T09:21:03+02:00</updated>
-   <id>http://localhost:4000/hps-response-meraki</id>
+   <link href="http://localhost:4000/HPs-response-to-Meraki-is-here/"/>
+   <updated>2014-07-22T00:00:00+02:00</updated>
+   <id>http://localhost:4000/HPs-response-to-Meraki-is-here</id>
    <content type="html">&lt;p&gt;It took a while but HP´s response to Cisco´s Meraki has hit the market. Say welcome to HP Cloud Network Manager!
 So far it looks like a joint-venture with Aruba who already has a cloud solution on the market, just with a HP twist to it.
 &lt;!--more--&gt;
@@ -58,9 +67,9 @@ HP is launching with three AP models each targeted at a specific price range:
  
  <entry>
    <title>Cisco Prime Infrastructure 2.1</title>
-   <link href="http://localhost:4000/cisco-prime-infrastructure-2-1/"/>
-   <updated>2014-05-20T11:13:30+02:00</updated>
-   <id>http://localhost:4000/cisco-prime-infrastructure-2-1</id>
+   <link href="http://localhost:4000/Cisco-Prime-Infrastructure-2-1/"/>
+   <updated>2014-05-20T00:00:00+02:00</updated>
+   <id>http://localhost:4000/Cisco-Prime-Infrastructure-2-1</id>
    <content type="html">&lt;p&gt;Good news! Prime Infrastructure 2.1 is out and available.  But instead of getting a upgrade path from 1.4 we only get a 2.0 -&amp;gt; 2.1 upgrade. It seems that all that was promised in the 2.1 upgrade the last 6 months are postponed to 2.2. So no new LMS features, and were still waiting on the 7.6x wlc features.&lt;/p&gt;
 &lt;p&gt;I´ll be honest that i´m not the biggest fan of Prime. Too many bugs, slow feature turnaround. I´m personally prone to lean towards Solarwinds and HP´s IMC for many tasks, but Cisco´s getting there. If they hold true to their promise and deliver feature parity with LMS in 2015 and get rid of their stupid license department, they´ll have a kille product. But that´s many if´s...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;New Features&lt;/strong&gt;&lt;/p&gt;
@@ -77,7 +86,7 @@ HP is launching with three AP models each targeted at a specific price range:
  <entry>
    <title>IMC UAM Radius and IPv6</title>
    <link href="http://localhost:4000/IMC-UAM-Radius-and-IPv6/"/>
-   <updated>2014-05-13T10:54:23+02:00</updated>
+   <updated>2014-05-13T00:00:00+02:00</updated>
    <id>http://localhost:4000/IMC-UAM-Radius-and-IPv6</id>
    <content type="html">&lt;p&gt;Yesterday while installing IMC for an POC (proof of concept) I stumbled on a problem with configuring radius on the UAM module. I had everything lined up and configured, but nothing was working!
 &lt;!--more--&gt;
@@ -101,11 +110,11 @@ Short story… if UAM radius is not listening on any ports and spewing errors…
  
  <entry>
    <title>IMC operator LDAP / SSL authentication</title>
-   <link href="http://localhost:4000/imc-operator-ldap-ssl-authentication/"/>
-   <updated>2014-05-09T11:18:24+02:00</updated>
-   <id>http://localhost:4000/imc-operator-ldap-ssl-authentication</id>
+   <link href="http://localhost:4000/IMC-operator-LDAP-SSL-authentication/"/>
+   <updated>2014-05-09T00:00:00+02:00</updated>
+   <id>http://localhost:4000/IMC-operator-LDAP-SSL-authentication</id>
    <content type="html">&lt;p&gt;IMC administrator / operators can be externally authenticated via LDAP or Radius. Combine LDAP authentication and a Active Directory and you get and easy way to authenticate your IMC administrators.&lt;/p&gt;
-&lt;p&gt;LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.&lt;/p&gt;
+&lt;p&gt;LDAP is relatively easy to setup if you´re using the basic configuration without encryption (SSL). While an easy and quick setup is nice now and then I will also go through the setup of LDAP over SSL authentication. In my opinion using encryption is crucial because passwords and usernames in cleartext over the wire isn´t exactly best practice.&lt;/p&gt;&lt;!--more--&gt;
 &lt;p&gt;In this post I will go through the following steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Setup basic operator LDAP authentication.&lt;/li&gt;
@@ -161,10 +170,12 @@ Next we need to find the full DN of the user where we will use the command &quot
  
  <entry>
    <title>IMC 7.0 E0202</title>
-   <link href="http://localhost:4000/imc-7-0-e0202/"/>
-   <updated>2014-05-06T08:57:55+02:00</updated>
-   <id>http://localhost:4000/imc-7-0-e0202</id>
-   <content type="html">&lt;p&gt;Since my change to HP networking, I´ve been working steadily on gaining experience on every aspect of HP networking products. One product in particular is HP´s IMC which is their solution to network management. In the past I have solely worked on Solarwinds and hold a SCP. But i´m pretty impressed with IMC and the roadmap that HP is showing. So far they have been able to stick to a 6 month update turnaround, which have shown good progress. Now with the latest version E0202 they have bumped IMC upwards with some enhancements and lots of bugfixes. &lt;!--more--&gt; &lt;strong&gt;Enhancements&lt;/strong&gt;&lt;/p&gt;
+   <link href="http://localhost:4000/IMC-7-0-E0202/"/>
+   <updated>2014-05-06T00:00:00+02:00</updated>
+   <id>http://localhost:4000/IMC-7-0-E0202</id>
+   <content type="html">&lt;p&gt;Since my change to HP networking, I´ve been working steadily on gaining experience on every aspect of HP networking products. One product in particular is HP´s IMC which is their solution to network management. In the past I have solely worked on Solarwinds and hold a SCP. But i´m pretty impressed with IMC and the roadmap that HP is showing. So far they have been able to stick to a 6 month update turnaround, which have shown good progress. Now with the latest version E0202 they have bumped IMC upwards with some enhancements and lots of bugfixes.
+ &lt;!--more--&gt;
+ &lt;strong&gt;Enhancements&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Topology HTML 5 is now an option on the drop down menu and not hidden away.&lt;/li&gt;
 &lt;li&gt;IPv6 management, starting with Comware.&lt;/li&gt;
@@ -194,7 +205,7 @@ Next we need to find the full DN of the user where we will use the command &quot
  <entry>
    <title>The starting point of my new blog</title>
    <link href="http://localhost:4000/the-starting-point-of-my-new-blog/"/>
-   <updated>2014-03-05T08:43:44+01:00</updated>
+   <updated>2014-03-05T00:00:00+01:00</updated>
    <id>http://localhost:4000/the-starting-point-of-my-new-blog</id>
    <content type="html">&lt;p&gt;So it´s official... i´ll try and start blogging about everything networking and perhaps a little personal note once in a while :-D&lt;/p&gt;
 &lt;p&gt;First and foremost this blog will be about my life as a network specialist. I have worked with Cisco for 10 years now and have recently acquired a new job which entails a shift to HP networking products. Should be exciting.&lt;/p&gt;

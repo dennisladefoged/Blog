@@ -4,7 +4,6 @@
   <head>
   <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="google-site-verification" content="CHDLMcD-DSdG2bM5RTcTpp_Hzfis6O3S1Z28KMwYeLg" />
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -27,8 +26,6 @@
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//public/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="//public/favicon.ico">
-
-  
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="//feed/">
@@ -140,7 +137,7 @@
       <div class="container content">
         <div class="post">
   <h1 class="post-title">IMC UAM Radius and IPv6</h1>
-  <span class="post-date">13 May 2014 &middot; Filed in <a href="http://localhost:4000/categories/#HP IMC">HP IMC</a></span>
+  <span class="post-date">13 May 2014 &middot; Filed in <a href="http://localhost:4000/categories/#IMC">IMC</a></span>
   <p>Yesterday while installing IMC for an POC (proof of concept) I stumbled on a problem with configuring radius on the UAM module. I had everything lined up and configured, but nothing was working!
 <!--more-->
 My access device which was a MSM controller was sending radius requests towards the IMC radius server on 1812, but was not receiving any response. I fired Wireshark op un the IMC server (a windows 2012 R2) and could see the radius request landing on the NIC. I double checked everything and the configuration was sound. I then proceeded to check if the IMC server was listening on TCP port 1812 and 1813 (std. radius ports) with the command “netstat -an”. Netstat reported that IMC was indeed not listening on any radius ports, not even the Cisco proprietary ports (1645,1646).
@@ -192,11 +189,11 @@ Short story… if UAM radius is not listening on any ports and spewing errors…
   </span>
   
     <span class="post-date">
-    <i class="fa fa-arrow-circle-left"></i> Previous Post: <a href="/imc-operator-ldap-ssl-authentication/">IMC operator LDAP / SSL authentication</a></span>
+    <i class="fa fa-arrow-circle-left"></i> Previous Post: <a href="/IMC-operator-LDAP-SSL-authentication/">IMC operator LDAP / SSL authentication</a></span>
   
   
     <span class="post-date">
-    Next Post: <a  href="/cisco-prime-infrastructure-2-1/">Cisco Prime Infrastructure 2.1</a> <i class="fa fa-arrow-circle-right"></i></span>
+    Next Post: <a  href="/Cisco-Prime-Infrastructure-2-1/">Cisco Prime Infrastructure 2.1</a> <i class="fa fa-arrow-circle-right"></i></span>
   
 
   <span class="post-sharing"><p>Share this: 
