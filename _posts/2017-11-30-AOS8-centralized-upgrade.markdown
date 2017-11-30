@@ -119,6 +119,6 @@ Third, Choose the cluster that needs to be upgraded
 
 ![step2](/assets/2017/11/step2_cluster_upgrade.png)
 
-Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path _._
+Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path ".".
 
 ![step3](/assets/2017/11/step3_cluster_upgrade.png)
