@@ -15,7 +15,7 @@ author: Dennis Ladefoged
 ---
 In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. Alle these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop.
 Starting from AOS 8.2 the Mobility Master or a Mobility Controller can be configured as a SCP server. Facilitating a central respository for image upgrades.
-
+<!--more-->
 ### Typical use cases
 * Upload/download configuration files to/from nodes
 * Download log & crash files from nodes
