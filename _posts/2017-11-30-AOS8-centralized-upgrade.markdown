@@ -122,3 +122,10 @@ Third, Choose the cluster that needs to be upgraded
 Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path ".".
 
 ![step3](/assets/2017/11/step3_cluster_upgrade.png)
+
+Live upgrade will execute the entire upgrade for you and download the image from the Mobility Master and not a external server or your laptop. So kick up your legs and enjoy :-P
+
+* Download of software on all cluster members
+* Preload of software on all connected APs
+* Partitioning of APs
+* Roaming of clients between AP partitions so upgrading does not give service interruption for clients
