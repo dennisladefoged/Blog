@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Change of scenery
-slug: Change-of-scenery
+title: ArubaOS 8 centralized upgrade
+slug: AOS8-centralized-upgrade
 date: 2017-11-30
 comments: true
 categories:
