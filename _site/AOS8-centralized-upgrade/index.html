@@ -138,7 +138,109 @@
         <div class="post">
   <h1 class="post-title">ArubaOS 8 centralized upgrade</h1>
   <span class="post-date">30 November 2017 &middot; Filed in <a href="https://routetonull.net/categories/#Aruba">Aruba • <a href="https://routetonull.net#disqus_thread">0 Comments</a></a></span>
-  <p>Hello</p>
+  <p>In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. Alle these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop.
+Starting from AOS 8.2 the Mobility Master or a Mobility Controller can be configured as a SCP server. Facilitating a central respository for image upgrades.
+<!--more--></p>
+<h3 id="typical-use-cases">Typical use cases</h3>
+<ul>
+  <li>Upload/download configuration files to/from nodes</li>
+  <li>Download log &amp; crash files from nodes</li>
+  <li>Download image from Mobility Master to a number of nodes (cluster for example)</li>
+</ul>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Enabling:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>VMM-active<span class="o">)</span> <span class="o">[</span>mynode] <span class="o">(</span>config<span class="o">)</span> <span class="c">#service</span>
+dhcp                  Enable DHCP service
+dhcpv6                Enable DHCPv6 service
+scp                   Enable scp copying from/to controller
+</code></pre>
+</div>
+
+<p>Disabling:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>VMM-active<span class="o">)</span> <span class="o">[</span>mynode] <span class="o">(</span>config<span class="o">)</span> <span class="c">#no service</span>
+dhcp                  Enable DHCP service
+dhcpv6                Enable DHCPv6 service
+scp                   Enable scp copying from/to controller
+</code></pre>
+</div>
+
+<p>Verification:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>VMM-active<span class="o">)</span> <span class="o">[</span>mynode] <span class="c">#show scp</span>
+
+service scp is disabled
+
+<span class="o">(</span>VMM-active<span class="o">)</span> <span class="o">[</span>mynode] <span class="c">#show scp</span>
+
+service scp is enabled
+
+</code></pre>
+</div>
+
+<h3 id="functionality">Functionality</h3>
+
+<p>Upload file from Linux client to node:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>LINUX_CLIENT ~]# scp linux.cfg admin@10.0.0.2:linuxToMM.cfg
+admin@10.0.0.2<span class="s1">'s password:
+linux.cfg 
+
+(VMM-active) [mynode] # dir
+-rw-------    1 root     root         2699 Aug 24 00:11 linuxToMM.cfg
+</span></code></pre>
+</div>
+
+<p>Download file from node til Linux client:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">[</span>LINUX_CLIENT ~]# scp admin@10.0.0.2:default.cfg .
+admin@10.0.0.2<span class="s1">'s password:
+default.cfg                                100%   48KB  47.7KB/s   00:00
+</span></code></pre>
+</div>
+
+<p>Upload a file from node to a Mobility Master:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>VMC1<span class="o">)</span> <span class="c">#copy flash: md.tar scp: 10.0.0.2 admin md.cfg</span>
+Password:<span class="k">******</span>
+
+Secure file copy:
+Press <span class="s1">'q'</span> to abort.
+............................................
+File uploaded successfully
+
+<span class="o">(</span>VMM-active<span class="o">)</span> <span class="o">[</span>mynode] <span class="o">(</span>config<span class="o">)</span> <span class="c">#dir</span>
+-rw-r--r--    1 root     root        12024 Jun  6 19:07 md.cfg
+</code></pre>
+</div>
+
+<p>Download a file from a Mobility Master to node:</p>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="o">(</span>VMC1<span class="o">)</span> <span class="c">#copy scp: 10.0.0.2 admin default.cfg flash: MMtoMD.cfg</span>
+Password:<span class="k">******</span>
+
+Press <span class="s1">'q'</span> to abort.
+
+Secure File Copy:....
+<span class="o">(</span>VMC1<span class="o">)</span> <span class="c">#dir</span>
+-rw-r--r--    1 root     root        48806 Aug 23 17:39 MMtoMD.cfg
+</code></pre>
+</div>
+
+<h3 id="cluster-live-upgrade-using-scp-server-on-mobility-master">Cluster live upgrade using SCP server on Mobility Master</h3>
+
+<p>With ArubaOS 8 we have the possibility of utilizing a feature called “Live Upgrade”. With this feature it is possible to do in-service upgrades of a entire cluster of controllers and connected APs with minimal service outage. I will do a in-depth blog post about live-upgrade at a later time, so stay tuned :-)</p>
+
+<p>For this post I will just show how to utilize the Mobility Master as a SCP server in a Live Upgrade.</p>
+
+<p>First, upload the image to the Mobility Master using SCP. This needs to be done from CLI, so no WinSCP, only CLI from Linux or other means.</p>
+
+<p>Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case <em>DC</em>. Go under <em>Configuration</em> -&gt; <em>Tasks</em> and click on <em>Upgrade Cluster</em></p>
+
+<p>[<img src="/assets/2017/11/step1_upgrade_cluster.png" alt="step1" />]</p>
 
   <span class="post-date">Tags:
     

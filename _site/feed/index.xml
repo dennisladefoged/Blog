@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://routetonull.net/feed/index.xml" rel="self" type="application/atom+xml" /><link href="https://routetonull.net/" rel="alternate" type="text/html" /><updated>2017-11-30T11:31:21+01:00</updated><id>https://routetonull.net/</id><title type="html">routetonull.</title><subtitle>Technical posts on networking, automation and career</subtitle><author><name>{&quot;gravatar_md5&quot;=&gt;&quot;cc7990f1a6d4e0558f768075931c52b4&quot;}</name></author><entry><title type="html">ArubaOS 8 centralized upgrade</title><link href="https://routetonull.net/AOS8-centralized-upgrade/" rel="alternate" type="text/html" title="ArubaOS 8 centralized upgrade" /><published>2017-11-30T00:00:00+01:00</published><updated>2017-11-30T00:00:00+01:00</updated><id>https://routetonull.net/AOS8-centralized-upgrade</id><content type="html" xml:base="https://routetonull.net/AOS8-centralized-upgrade/">&lt;p&gt;Hello&lt;/p&gt;</content><author><name>Dennis Ladefoged</name></author><category term="Aruba" /><category term="AOS8" /><category term="Upgrade" /><category term="Live Upgrade" /><summary type="html">Hello</summary></entry><entry><title type="html">Change of scenery</title><link href="https://routetonull.net/Change-of-scenery/" rel="alternate" type="text/html" title="Change of scenery" /><published>2016-12-12T00:00:00+01:00</published><updated>2016-12-12T00:00:00+01:00</updated><id>https://routetonull.net/Change-of-scenery</id><content type="html" xml:base="https://routetonull.net/Change-of-scenery/">&lt;p&gt;My blog has been dead for some time now. Mostly due to having two hyper-active kids and everything that follows with having a family.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://routetonull.net/feed/index.xml" rel="self" type="application/atom+xml" /><link href="https://routetonull.net/" rel="alternate" type="text/html" /><updated>2017-11-30T21:44:00+01:00</updated><id>https://routetonull.net/</id><title type="html">routetonull.</title><subtitle>Technical posts on networking, automation and career</subtitle><author><name>{&quot;gravatar_md5&quot;=&gt;&quot;cc7990f1a6d4e0558f768075931c52b4&quot;}</name></author><entry><title type="html">ArubaOS 8 centralized upgrade</title><link href="https://routetonull.net/AOS8-centralized-upgrade/" rel="alternate" type="text/html" title="ArubaOS 8 centralized upgrade" /><published>2017-11-30T00:00:00+01:00</published><updated>2017-11-30T00:00:00+01:00</updated><id>https://routetonull.net/AOS8-centralized-upgrade</id><content type="html" xml:base="https://routetonull.net/AOS8-centralized-upgrade/">&lt;p&gt;In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. Alle these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop.
+Starting from AOS 8.2 the Mobility Master or a Mobility Controller can be configured as a SCP server. Facilitating a central respository for image upgrades.
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;h3 id=&quot;typical-use-cases&quot;&gt;Typical use cases&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Upload/download configuration files to/from nodes&lt;/li&gt;
+  &lt;li&gt;Download log &amp;amp; crash files from nodes&lt;/li&gt;
+  &lt;li&gt;Download image from Mobility Master to a number of nodes (cluster for example)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;configuration&quot;&gt;Configuration&lt;/h3&gt;
+
+&lt;p&gt;Enabling:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMM-active&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mynode] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#service&lt;/span&gt;
+dhcp                  Enable DHCP service
+dhcpv6                Enable DHCPv6 service
+scp                   Enable scp copying from/to controller
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Disabling:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMM-active&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mynode] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#no service&lt;/span&gt;
+dhcp                  Enable DHCP service
+dhcpv6                Enable DHCPv6 service
+scp                   Enable scp copying from/to controller
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Verification:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMM-active&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mynode] &lt;span class=&quot;c&quot;&gt;#show scp&lt;/span&gt;
+
+service scp is disabled
+
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMM-active&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mynode] &lt;span class=&quot;c&quot;&gt;#show scp&lt;/span&gt;
+
+service scp is enabled
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;functionality&quot;&gt;Functionality&lt;/h3&gt;
+
+&lt;p&gt;Upload file from Linux client to node:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;LINUX_CLIENT ~]# scp linux.cfg admin@10.0.0.2:linuxToMM.cfg
+admin@10.0.0.2&lt;span class=&quot;s1&quot;&gt;'s password:
+linux.cfg 
+
+(VMM-active) [mynode] # dir
+-rw-------    1 root     root         2699 Aug 24 00:11 linuxToMM.cfg
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Download file from node til Linux client:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;LINUX_CLIENT ~]# scp admin@10.0.0.2:default.cfg .
+admin@10.0.0.2&lt;span class=&quot;s1&quot;&gt;'s password:
+default.cfg                                100%   48KB  47.7KB/s   00:00
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Upload a file from node to a Mobility Master:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMC1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#copy flash: md.tar scp: 10.0.0.2 admin md.cfg&lt;/span&gt;
+Password:&lt;span class=&quot;k&quot;&gt;******&lt;/span&gt;
+
+Secure file copy:
+Press &lt;span class=&quot;s1&quot;&gt;'q'&lt;/span&gt; to abort.
+............................................
+File uploaded successfully
+
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMM-active&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;mynode] &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;config&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#dir&lt;/span&gt;
+-rw-r--r--    1 root     root        12024 Jun  6 19:07 md.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Download a file from a Mobility Master to node:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMC1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#copy scp: 10.0.0.2 admin default.cfg flash: MMtoMD.cfg&lt;/span&gt;
+Password:&lt;span class=&quot;k&quot;&gt;******&lt;/span&gt;
+
+Press &lt;span class=&quot;s1&quot;&gt;'q'&lt;/span&gt; to abort.
+
+Secure File Copy:....
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMC1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#dir&lt;/span&gt;
+-rw-r--r--    1 root     root        48806 Aug 23 17:39 MMtoMD.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;cluster-live-upgrade-using-scp-server-on-mobility-master&quot;&gt;Cluster live upgrade using SCP server on Mobility Master&lt;/h3&gt;
+
+&lt;p&gt;With ArubaOS 8 we have the possibility of utilizing a feature called “Live Upgrade”. With this feature it is possible to do in-service upgrades of a entire cluster of controllers and connected APs with minimal service outage. I will do a in-depth blog post about live-upgrade at a later time, so stay tuned :-)&lt;/p&gt;
+
+&lt;p&gt;For this post I will just show how to utilize the Mobility Master as a SCP server in a Live Upgrade.&lt;/p&gt;
+
+&lt;p&gt;First, upload the image to the Mobility Master using SCP. This needs to be done from CLI, so no WinSCP, only CLI from Linux or other means.&lt;/p&gt;
+
+&lt;p&gt;Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case &lt;em&gt;DC&lt;/em&gt;. Go under &lt;em&gt;Configuration&lt;/em&gt; -&amp;gt; &lt;em&gt;Tasks&lt;/em&gt; and click on &lt;em&gt;Upgrade Cluster&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;[&lt;img src=&quot;/assets/2017/11/step1_upgrade_cluster.png&quot; alt=&quot;step1&quot; /&gt;]&lt;/p&gt;</content><author><name>Dennis Ladefoged</name></author><category term="Aruba" /><category term="AOS8" /><category term="Upgrade" /><category term="Live Upgrade" /><summary type="html">In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. Alle these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop. Starting from AOS 8.2 the Mobility Master or a Mobility Controller can be configured as a SCP server. Facilitating a central respository for image upgrades.</summary></entry><entry><title type="html">Change of scenery</title><link href="https://routetonull.net/Change-of-scenery/" rel="alternate" type="text/html" title="Change of scenery" /><published>2016-12-12T00:00:00+01:00</published><updated>2016-12-12T00:00:00+01:00</updated><id>https://routetonull.net/Change-of-scenery</id><content type="html" xml:base="https://routetonull.net/Change-of-scenery/">&lt;p&gt;My blog has been dead for some time now. Mostly due to having two hyper-active kids and everything that follows with having a family.
 But I recently got the chance to start as a Systems Engineer at Aruba Networks here in Denmark. So I have decided to start blogging again about my new employment and the things that come with working for a vendor.&amp;lt;/p&amp;gt;
 More to come :-)&lt;/p&gt;</content><author><name>Dennis Ladefoged</name></author><category term="Employment" /><summary type="html">My blog has been dead for some time now. Mostly due to having two hyper-active kids and everything that follows with having a family. But I recently got the chance to start as a Systems Engineer at Aruba Networks here in Denmark. So I have decided to start blogging again about my new employment and the things that come with working for a vendor.&amp;lt;/p&amp;gt; More to come :-)</summary></entry><entry><title type="html">HP´s response to Meraki is here</title><link href="https://routetonull.net/HPs-response-to-Meraki-is-here/" rel="alternate" type="text/html" title="HP´s response to Meraki is here" /><published>2014-07-22T00:00:00+02:00</published><updated>2014-07-22T00:00:00+02:00</updated><id>https://routetonull.net/HPs-response-to-Meraki-is-here</id><content type="html" xml:base="https://routetonull.net/HPs-response-to-Meraki-is-here/">&lt;p&gt;It took a while but HP´s response to Cisco´s Meraki has hit the market. Say welcome to HP Cloud Network Manager!
 So far it looks like a joint-venture with Aruba who already has a cloud solution on the market, just with a HP twist to it.
