@@ -13,7 +13,7 @@ tags:
 - Live Upgrade
 author: Dennis Ladefoged
 ---
-In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. Alle these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop.
+In ArubaOS 8 we have several methods of upgrading the wireless infrastructure. All these methods have one thing in commmon; they need a repository for the new image to be downloaded. Historically this has been done using TFTP, FTP, FTPS or SCP from a dedicated server or the engineers own laptop.
 Starting from AOS 8.2 the Mobility Master or a Mobility Controller can be configured as a SCP server. Facilitating a central respository for image upgrades.
 <!--more-->
 ### Typical use cases
@@ -45,13 +45,10 @@ Verification:
 
 ```sh
 (VMM-active) [mynode] #show scp
-
 service scp is disabled
 
 (VMM-active) [mynode] #show scp
-
 service scp is enabled
-
 ```
 
 ### Functionality
@@ -79,7 +76,7 @@ Upload a file from node to a Mobility Master:
 
 ```sh
 (VMC1) #copy flash: md.tar scp: 10.0.0.2 admin md.cfg
-Password:******
+Password:
 
 Secure file copy:
 Press 'q' to abort.
@@ -111,7 +108,7 @@ For this post I will just show how to utilize the Mobility Master as a SCP serve
 
 First, upload the image to the Mobility Master using SCP. This needs to be done from CLI, so no WinSCP, only CLI from Linux or other means.
 
-Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case _DC_. Go under _Configuration_ -> _Tasks_ and click on _Upgrade Cluster_
+Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case _DC_. Go under _Configuration_ -> _Tasks_ and click on _Upgrade Cluster_.
 
 [![step1](/assets/2017/11/step1_cluster_upgrade.png)](/assets/2017/11/step1_cluster_upgrade.png)
 
@@ -119,13 +116,17 @@ Third, Choose the cluster that needs to be upgraded
 
 [![step2](/assets/2017/11/step2_cluster_upgrade.png)](/assets/2017/11/step2_cluster_upgrade.png)
 
-Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path ".".
+Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path "."
 
 [![step3](/assets/2017/11/step3_cluster_upgrade.png)](/assets/2017/11/step3_cluster_upgrade.png)
 
 Live upgrade will execute the entire upgrade for you and download the image from the Mobility Master and not a external server or your laptop. So kick up your legs and enjoy :-P
 
+Live Upgrade will facilitate the following for you:
+
 * Download of software on all cluster members
 * Preload of software on all connected APs
 * Partitioning of APs
 * Roaming of clients between AP partitions so upgrading does not give service interruption for clients
+
+I hope this post has been of use to you, please leave a comment and share it.
