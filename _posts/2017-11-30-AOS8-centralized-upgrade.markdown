@@ -5,7 +5,7 @@ slug: AOS8-centralized-upgrade
 date: 2017-11-30
 comments: true
 categories:
-- Private
+- Aruba
 tags:
 - Aruba
 - AOS8
