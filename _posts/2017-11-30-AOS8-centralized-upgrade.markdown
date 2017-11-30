@@ -113,7 +113,7 @@ First, upload the image to the Mobility Master using SCP. This needs to be done 
 
 Second, on the Mobility Master UI, find the corresponding folder where the cluster recides. In my case _DC_. Go under _Configuration_ -> _Tasks_ and click on _Upgrade Cluster_
 
-![step1](/assets/2017/11/step1_cluster_upgrade.png)
+[![step1](/assets/2017/11/step1_cluster_upgrade.png)](/assets/2017/11/step1_cluster_upgrade.png)
 
 Third, Choose the cluster that needs to be upgraded
 
@@ -121,7 +121,7 @@ Third, Choose the cluster that needs to be upgraded
 
 Fourth, we need to point to the Mobility Master IP or VIP if you have two MM´s in redundancy, give the correct image version number and point to the default path ".".
 
-![step3](/assets/2017/11/step3_cluster_upgrade.png)
+[![step3](/assets/2017/11/step3_cluster_upgrade.png)](/assets/2017/11/step3_cluster_upgrade.png)
 
 Live upgrade will execute the entire upgrade for you and download the image from the Mobility Master and not a external server or your laptop. So kick up your legs and enjoy :-P
 
