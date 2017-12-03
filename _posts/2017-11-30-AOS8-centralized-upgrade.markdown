@@ -129,4 +129,4 @@ Live Upgrade will facilitate the following for you:
 * Partitioning of APs
 * Roaming of clients between AP partitions so upgrading does not give service interruption for clients
 
-I hope this post has been of use to you, please leave a comment and share it.
+I hope this post has been of use to you, please leave a comment and share this post :-)
