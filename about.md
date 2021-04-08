@@ -1,7 +1,7 @@
 ---
 author: Dennis Ladefoged
 comments: false
-date: 2019-28-01
+date: 2020-08-04
 layout: page
 slug: about
 title: About
@@ -13,6 +13,9 @@ Certifications:
 
 - NSE4
 - NSE5
+- NSE6
+- NSE7
+- NSE8 Written - preparing for lab - ETA. eof 2021
 - ACMP
 - ACSP
 - ACDP
@@ -22,3 +25,4 @@ Certifications:
 - CCNP
 - CCNP-Wireless
 - CWNA
+- -CWDP
