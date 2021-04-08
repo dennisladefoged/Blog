@@ -25,4 +25,4 @@ Certifications:
 - CCNP
 - CCNP-Wireless
 - CWNA
-- -CWDP
+- CWDP
